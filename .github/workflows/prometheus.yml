@@ -28,7 +28,7 @@ jobs:
       run: |
         curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
     
-    - name: Clone Grafana
+    - name: Clone prometheus
       uses: GuillaumeFalourd/clone-github-repo-action@v2.3
       with:
         depth: 1
