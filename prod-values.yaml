@@ -1,14 +1,22 @@
-# Admin credentials
-admin:
-  username: admin
-  password: ""
-
-# Example for Helm chart values.yaml
-# Assuming this is part of a Helm chart, here's how it might look
-
-# Service configuration
-service:
-  type: LoadBalancer
-  port: 80
-  targetPort: 80
-  annotations: {} # Any additional annotations for the service
+expose:
+  type: loadBalancer
+  ports:
+    httpPort: 80
+  tls:
+    enabled: false
+adminPassword: "password"
+## @param externalURL The external URL for Harbor Core service
+## It is used to
+## 1) populate the docker/helm commands showed on portal
+##
+## Format: protocol://domain[:port]. Usually:
+## 1) if "exposureType" is "ingress", the "domain" should be
+## the value of "ingress.hostname"
+## 2) if "exposureType" is "proxy" and "service.type" is "ClusterIP",
+## the "domain" should be the value of "service.clusterIP"
+## 3) if "exposureType" is "proxy" and "service.type" is "NodePort",
+## the "domain" should be the IP address of k8s node
+## 4) if "exposureType" is "proxy" and "service.type" is "LoadBalancer",
+## the "domain" should be the LoadBalancer IP
+# ##
+# externalURL: https://core.harbor.domain
