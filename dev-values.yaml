@@ -1,0 +1,14 @@
+# Admin credentials
+admin:
+  username: admin
+  password: ""
+
+# Example for Helm chart values.yaml
+# Assuming this is part of a Helm chart, here's how it might look
+
+# Service configuration
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 80
+  annotations: {} # Any additional annotations for the service
